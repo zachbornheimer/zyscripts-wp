@@ -1,11 +1,10 @@
 Zyscripts Optimizations - Wordpress Plugin
 
-Licensed under the GPLv3
-Bug Finders, if you find a bug, leave it to me as an issue...I _may_ give you free access as a thank you.
-
-This wordpress plugin allows for the optimization of javascript on a wordpress site.
-Note, the first time you visit your site after a change (or after you load it for the first time), it will be very slow.  This is because it is compiling the code you requested.
-It does not compile your code if it is broken or if you have not registered your site at zyscripts.com
+* Licensed under the GPLv3
+* Bug Finders, if you find a bug, leave it to me as an issue...I _may_ give you free access as a thank you.
+* This wordpress plugin allows for the optimization of javascript on a wordpress site.
+* Note, the first time you visit your site after a change (or after you load it for the first time), it will be very slow.  This is because it is compiling the code you requested.
+* It does not compile your code if it is broken or if you have not registered your site at zyscripts.com
 
 Optimizations:
 ==============
@@ -29,7 +28,7 @@ Results Thus Far:
 
 Multisite:
 ==========
-* If you install this plugin in mu-plugins, it will automatically apply to every site.
+* If you install this plugin in mu-plugins, it will automatically apply to every site, however it will be unable to update.  The better option is to enable it using "Network Enable."
 
 Application:
 ============
