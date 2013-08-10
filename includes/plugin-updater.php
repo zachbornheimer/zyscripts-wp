@@ -1,6 +1,6 @@
 <?php
-/* Prevent loading this file directly and/or if the class is already defined */
-if ( ! defined( 'ABSPATH' ) || class_exists( 'Plugin_Updater' ) )
+/* Prevent loading this file directly */
+if ( ! defined( 'ABSPATH' ) )
 	return;
 
 
