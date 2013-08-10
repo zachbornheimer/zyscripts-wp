@@ -3,7 +3,7 @@
  * Plugin Name: Zyscripts Enhancements
  * Plugin URI: http://zysys.org/wiki/Zyscript_Enhancements
  * Description: A series of site enhancements that optimize the site beyond caching
- * Version: 1.0
+ * Version: 0.5
  * Author: Z. Bornheimer (Zysys)
  * Author URI: http://zysys.org
  * License: GPLv3
@@ -78,7 +78,7 @@ function zyscripts_updater_init() {
     );
 
     /* Load Updater Class */
-    new Super_Mario_Plugin_Updater( $config );
+    new Plugin_Updater( $config );
 }
 
 add_action( 'wp_print_scripts', 'zyscripts_loadjs' );
