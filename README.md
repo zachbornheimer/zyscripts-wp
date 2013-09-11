@@ -1,16 +1,19 @@
 Zyscripts Optimizations - Wordpress Plugin
 
-* Licensed under the GPLv3
-* Bug Finders, if you find a bug, leave it to me as an issue...I _may_ give you free access as a thank you.
-* This wordpress plugin allows for the optimization of javascript on a wordpress site.
-* Note, the first time you visit your site after a change (or after you load it for the first time), it will be very slow.  This is because it is compiling the code you requested.
-* It does not compile your code if it is broken or if you have not registered your site at zyscripts.com
+Licensed under the GPLv3
+Bug Finders, if you find a bug, leave it to me as an issue...I _may_ give you free access as a thank you.
+
+This wordpress plugin allows for the optimization of javascript and css on a wordpress site.
+Note, the first time you visit your site after a change (or after you load it for the first time), it will be very slow.  This is because it is compiling the code you requested.
+It does not compile your code if it is broken or if you have not registered your site at zyscripts.com
 
 Optimizations:
 ==============
 * Asynchronously load all enqueued javascript
-* Sends closure-compiled version of all registered scripts
+* Sends closure-compiled version of all registered scripts (JS)
 * Implementation of a load balancer - by having half of your traffic being requested from the zyscripts server, 
+* Optimizes and Minifies CSS
+* It automatically rewrites relative urls to be absolute during compile time (CSS)
 
 Precautions:
 ============
@@ -28,7 +31,8 @@ Results Thus Far:
 
 Multisite:
 ==========
-* If you install this plugin in mu-plugins, it will automatically apply to every site, however it will be unable to update.  The better option is to enable it using "Network Enable."
+* If you install this plugin in mu-plugins, it will automatically apply to every site, but then you won't be able to update it.
+* It's best to just network enable this plugin and update when necessary.
 
 Application:
 ============
