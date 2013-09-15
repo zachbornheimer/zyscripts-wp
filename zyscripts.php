@@ -47,7 +47,7 @@ function zyscripts_loadjs() {
                 if (in_array($handle, $wp_scripts->queue)) {
                     $reque = 1;
                     $src = preg_replace('/http:\/\/zyscripts\.com\/loadjs.cgi\//', '', $src);
-                    $src = 'http://zyscripts.com/loadjs.cgi/' . urlencode(urlencode($src));
+                    $src = 'http://zyscripts.com/loadjs.cgi/' . urlencode(urlencode(urlencode($src)));
                 } else {
                 #    $src = preg_replace('/http:\/\/zyscripts\.com\/closure.cgi\//', '', $src);
                 #    $src = 'http://zyscripts.com/closure.cgi/' . urlencode($src);
@@ -106,7 +106,7 @@ function zyscripts_loadcss() {
             $reque = 0;
          #   if (!in_array($handle, $ignoreArray)) {
                 $src = preg_replace('/http:\/\/zyscripts\.com\/css.cgi\//', '', $src);
-                $src = 'http://zyscripts.com/css.cgi/' . urlencode(urlencode($src));
+                $src = 'http://zyscripts.com/css.cgi/' . urlencode(urlencode(urlencode($src)));
                 wp_deregister_style($handle);
                 wp_register_style( $handle, $src, $deps, $ver );
                 if ($reque) {
