@@ -15,7 +15,7 @@ function zyscripts_loadjs() {
     if (is_admin()) {
         return;
     }
-    $ignoreArray = explode(' ', 'jquery-core jetpack superfish wpgroho flexslider');
+    $ignoreArray = explode(' ', 'jquery-core jetpack superfish wpgroho flexslider flowplayer');
     foreach( $wp_scripts->queue as $handle ) {
         foreach ($wp_scripts->registered as $key => $value) {
             foreach ($ignoreArray as $ignore) {
