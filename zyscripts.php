@@ -31,7 +31,7 @@ endif;
 
 if (!function_exists('zyscripts_loadcss')):
 function zyscripts_loadcss($url) {
-    if ( is_admin() ) return;
+    if ( is_admin() ) return $url;
     return str_replace($url, 'http://zyscripts.com/css.cgi/'.urlencode(urlencode(urlencode($url))), $url);
 }
 add_filter( 'style_loader_src', 'zyscripts_loadcss' );
