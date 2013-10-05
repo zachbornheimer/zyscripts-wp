@@ -24,6 +24,9 @@ function zyscripts_loadjs() {
                 }
             }
             $src = $wp_scripts->registered[$key]->src;
+            if (preg_match('/\/\/zyscripts\.com\//', $src)) {
+                continue;
+            }
             $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https:" : "http:";
             if (substr($src, 0, 2) == '//') {
                 $src = $protocol . $src;
@@ -83,6 +86,9 @@ function zyscripts_loadcss() {
                 }
             }
             $src = $wp_styles->registered[$key]->src;
+            if (preg_match('/\/\/zyscripts\.com\//', $src)) {
+                continue;
+            }
             $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https:" : "http:";
             if (substr($src, 0, 2) == '//') {
                 $src = $protocol . $src;
