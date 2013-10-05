@@ -3,7 +3,7 @@
  * Plugin Name: Zyscripts Enhancements
  * Plugin URI: http://zysys.org/wiki/Zyscript_Enhancements
  * Description: A series of site enhancements that optimize the site beyond caching
- * Version: 1.1
+ * Version: 1.2
  * Author: Z. Bornheimer (Zysys)
  * Author URI: http://zysys.org
  * License: GPLv3
@@ -15,7 +15,7 @@ function zyscripts_loadjs() {
     if (is_admin()) {
         return;
     }
-    $ignoreArray = explode(' ', 'jquery-core jetpack superfish wpgroho flexslider flowplayer');
+    $ignoreArray = array('jquery', 'jquery-core', 'jetpack', 'superfish', 'wpgroho', 'flexslider', 'flowplayer');
     foreach( $wp_scripts->queue as $handle ) {
         foreach ($wp_scripts->registered as $key => $value) {
             foreach ($ignoreArray as $ignore) {
@@ -24,9 +24,6 @@ function zyscripts_loadjs() {
                 }
             }
             $src = $wp_scripts->registered[$key]->src;
-            if (preg_match('/\/\/zyscripts\.com\//', $src)) {
-                continue;
-            }
             $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https:" : "http:";
             if (substr($src, 0, 2) == '//') {
                 $src = $protocol . $src;
@@ -46,16 +43,16 @@ function zyscripts_loadjs() {
             if (!in_array($handle, $ignoreArray)) {
                 if (in_array($handle, $wp_scripts->queue)) {
                     $reque = 1;
-                    $src = preg_replace('/http:\/\/zyscripts\.com\/loadjs.cgi\//', '', $src);
+                    $src = str_replace('/http:\/\/zyscripts\.com\/loadjs.cgi\//', '', $src);
                     $src = 'http://zyscripts.com/loadjs.cgi/' . urlencode(urlencode(urlencode($src)));
                 } else {
-                #    $src = preg_replace('/http:\/\/zyscripts\.com\/closure.cgi\//', '', $src);
+                #    $src = str_replace('/http:\/\/zyscripts\.com\/closure.cgi\//', '', $src);
                 #    $src = 'http://zyscripts.com/closure.cgi/' . urlencode($src);
                 }
                 wp_deregister_script($handle);
                 wp_register_script( $handle, $src, $deps, false, $in_footer );
                 if ($reque) {
-                    wp_enqueue_script( $handle, $src, $deps, false, $in_footer);
+                    wp_enqueue_script( $handle );
                 }
             }
         }
@@ -77,7 +74,7 @@ function zyscripts_loadcss() {
     if (is_admin()) {
         return;
     }
-    $ignoreArray = explode(' ', ' ');
+    $ignoreArray = array();
     foreach( $wp_styles->queue as $handle ) {
         foreach ($wp_styles->registered as $key => $value) {
             foreach ($ignoreArray as $ignore) {
@@ -86,9 +83,6 @@ function zyscripts_loadcss() {
                 }
             }
             $src = $wp_styles->registered[$key]->src;
-            if (preg_match('/\/\/zyscripts\.com\//', $src)) {
-                continue;
-            }
             $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https:" : "http:";
             if (substr($src, 0, 2) == '//') {
                 $src = $protocol . $src;
@@ -103,15 +97,11 @@ function zyscripts_loadcss() {
             $deps = $wp_styles->registered[$key]->deps;
             $ver = $wp_styles->registered[$key]->ver;
             $args = $wp_styles->registered[$key]->args;
-            $reque = 0;
          #   if (!in_array($handle, $ignoreArray)) {
-                $src = preg_replace('/http:\/\/zyscripts\.com\/css.cgi\//', '', $src);
+                $src = str_replace('/http:\/\/zyscripts\.com\/css.cgi\//', '', $src);
                 $src = 'http://zyscripts.com/css.cgi/' . urlencode(urlencode(urlencode($src)));
                 wp_deregister_style($handle);
                 wp_register_style( $handle, $src, $deps, $ver );
-                if ($reque) {
-                    wp_enqueue_style( $handle, $src, $deps, $ver );
-                }
           #  }
         }
     }
