@@ -18,7 +18,7 @@ function zyscripts_loadjs($url) {
             return $url;
         }
     }
-    return str_replace($url, 'http://zyscripts.com/loadjs.cgi/'.urlencode(urlencode(urlencode($url))), $url);
+    return str_replace($url, '//zyscripts.com/loadjs.cgi/'.urlencode(urlencode(urlencode($url))), $url);
 }
 add_filter( 'script_loader_src', 'zyscripts_loadjs' );
 
@@ -32,7 +32,7 @@ endif;
 if (!function_exists('zyscripts_loadcss')):
 function zyscripts_loadcss($url) {
     if ( is_admin() ) return $url;
-    return str_replace($url, 'http://zyscripts.com/css.cgi/'.urlencode(urlencode(urlencode($url))), $url);
+    return str_replace($url, '//zyscripts.com/css.cgi/'.urlencode(urlencode(urlencode($url))), $url);
 }
 add_filter( 'style_loader_src', 'zyscripts_loadcss' );
 
