@@ -9,7 +9,7 @@ It does not compile your code if it is broken or if you have not registered your
 
 Optimizations:
 ==============
-* Asynchronously load all enqueued javascript
+* Asynchronously load enqueued javascript or, if it is a known issue, load it synchronosly
 * Sends closure-compiled version of all registered scripts (JS)
 * Implementation of a load balancer - by having half of your traffic being requested from the zyscripts server, 
 * Optimizes and Minifies CSS
@@ -31,10 +31,9 @@ Results Thus Far:
 
 Multisite:
 ==========
-* If you install this plugin in mu-plugins, it will automatically apply to every site, but then you won't be able to update it.
-* It's best to just network enable this plugin and update when necessary.
+* If you install this plugin in mu-plugins, it will automatically apply to every site, but then you won't be able to update it. -- It's best to just network enable this plugin and update when necessary.
 
 Application:
 ============
-* If you register your domain with zyscripts.com, it will work on your domain and subdirectories, but not on subdomains
+* If you register your domain with zyscripts.com, it will work on your domain and subdirectories (domain.com/\*), but not on subdomains (\*.domain.com)
 * If you register your subdomain with zyscripts.com, it will work on your subdomain and subdirectories of that subdoomain, but not on the host domain.
